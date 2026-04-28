@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { projects } from "@/lib/portfolio-data";
 import { useMemo, useState } from "react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
+  const { t } = useLanguage();
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(projects.map((p) => p.category)))],
     []
@@ -22,14 +24,11 @@ function ProjectsPage() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
-      <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">Projects</div>
+      <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">{t("proj_page_kicker")}</div>
       <h1 className="mt-3 font-display text-4xl md:text-5xl font-bold max-w-3xl text-balance">
-        A gallery of applied engineering work.
+        {t("proj_page_title")}
       </h1>
-      <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-        From process development on industrial machines to lab-scale studies — each project links a manufacturing
-        question to a measurable outcome.
-      </p>
+      <p className="mt-5 text-lg text-muted-foreground max-w-2xl">{t("proj_page_desc")}</p>
 
       <div className="mt-10 flex flex-wrap gap-2">
         {categories.map((c) => (
@@ -42,7 +41,7 @@ function ProjectsPage() {
                 : "border-border text-muted-foreground hover:text-foreground hover:bg-secondary"
             }`}
           >
-            {c}
+            {c === "All" ? t("filter_all") : c}
           </button>
         ))}
       </div>
