@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { publications } from "@/lib/portfolio-data";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const Route = createFileRoute("/research")({
   head: () => ({
@@ -12,16 +13,14 @@ export const Route = createFileRoute("/research")({
 });
 
 function ResearchPage() {
+  const { t } = useLanguage();
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
-      <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">Research</div>
+      <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">{t("res_page_kicker")}</div>
       <h1 className="mt-3 font-display text-4xl md:text-5xl font-bold max-w-3xl text-balance">
-        Peer-reviewed publications.
+        {t("res_page_title")}
       </h1>
-      <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-        Selected journal articles spanning friction stir welding, corrosion, AI-assisted process modeling and
-        sustainable manufacturing.
-      </p>
+      <p className="mt-5 text-lg text-muted-foreground max-w-2xl">{t("res_page_desc")}</p>
 
       <ol className="mt-12 divide-y divide-border border border-border rounded-xl overflow-hidden bg-card">
         {publications.map((p, i) => (
@@ -54,9 +53,7 @@ function ResearchPage() {
         ))}
       </ol>
 
-      <div className="mt-10 text-sm text-muted-foreground">
-        Each entry links to the publisher's record. For full bibliographic references, see the CV.
-      </div>
+      <div className="mt-10 text-sm text-muted-foreground">{t("res_page_note")}</div>
     </section>
   );
 }

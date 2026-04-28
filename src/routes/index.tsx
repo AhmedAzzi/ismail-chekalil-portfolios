@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { profile, domains, projects } from "@/lib/portfolio-data";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,7 +17,10 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const { t } = useLanguage();
   const featured = projects.slice(0, 6);
+
+  const statLabels = ["stat_papers", "stat_domains", "stat_phd", "stat_pmp"];
 
   return (
     <>
@@ -28,39 +32,40 @@ function HomePage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card/60 text-xs font-mono text-muted-foreground mb-8">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              Available for research collaboration & consulting
+              {t("hero_status")}
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] text-balance">
               {profile.name}.
               <span className="block text-muted-foreground font-medium mt-2 text-3xl md:text-5xl">
-                {profile.subtitle}.
+                {t("hero_subtitle")}.
               </span>
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
-              {profile.tagline}
+              {t("hero_tagline")}
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 to="/projects"
                 className="inline-flex items-center gap-2 bg-copper text-primary-foreground px-5 py-3 rounded-md text-sm font-medium shadow-elevated hover:opacity-95 transition"
               >
-                Explore projects
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                {t("hero_cta_projects")}
               </Link>
               <Link
                 to="/research"
                 className="inline-flex items-center gap-2 border border-border bg-card/60 text-foreground px-5 py-3 rounded-md text-sm font-medium hover:bg-secondary transition"
               >
-                Research publications
+                {t("hero_cta_research")}
               </Link>
             </div>
           </div>
 
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-lg overflow-hidden border border-border">
-            {profile.stats.map((s) => (
-              <div key={s.label} className="bg-card p-6">
+            {profile.stats.map((s, i) => (
+              <div key={i} className="bg-card p-6">
                 <div className="font-display text-3xl md:text-4xl font-bold text-primary">{s.value}</div>
-                <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">{s.label}</div>
+                <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">
+                  {t(statLabels[i])}
+                </div>
               </div>
             ))}
           </div>
@@ -71,24 +76,17 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">01 — About</div>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold">From microstructure to industry.</h2>
+            <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">{t("about_kicker")}</div>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold">{t("about_title")}</h2>
           </div>
           <div className="md:col-span-8 space-y-5 text-muted-foreground text-lg leading-relaxed">
+            <p>{t("about_p1")}</p>
             <p>
-              Mechanical engineering researcher (PhD) focused on manufacturing and materials, specializing in metal
-              additive manufacturing and friction stir welding with strong emphasis on corrosion behavior and process
-              optimization.
+              {t("about_p2_pre")}
+              <span className="text-foreground">{t("about_p2_org")}</span>
+              {t("about_p2_post")}
             </p>
-            <p>
-              Currently a Technical Research Assistant at the <span className="text-foreground">Interdisciplinary Research Center for Intelligent Manufacturing & Robotics</span>{" "}
-              at KFUPM — managing additive and subtractive manufacturing labs, mentoring researchers, and contributing
-              to high-impact sustainable manufacturing projects.
-            </p>
-            <p>
-              Author of peer-reviewed papers on FSW, corrosion and AI-assisted process modeling, and a certified
-              Project Management Professional bridging the gap between research and industrial deployment.
-            </p>
+            <p>{t("about_p3")}</p>
           </div>
         </div>
       </section>
@@ -98,11 +96,11 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">02 — Expertise</div>
-              <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold">Eight engineering domains.</h2>
+              <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">{t("expertise_kicker")}</div>
+              <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold">{t("expertise_title")}</h2>
             </div>
             <Link to="/expertise" className="hidden md:inline text-sm text-muted-foreground hover:text-primary">
-              All domains →
+              {t("expertise_all")}
             </Link>
           </div>
 
@@ -122,11 +120,11 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">03 — Selected work</div>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold">Project gallery.</h2>
+            <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">{t("projects_kicker")}</div>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold">{t("projects_title")}</h2>
           </div>
           <Link to="/projects" className="text-sm text-muted-foreground hover:text-primary">
-            View all →
+            {t("projects_view_all")}
           </Link>
         </div>
 
@@ -155,16 +153,14 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-10 md:p-16 grid-bg">
           <div className="relative max-w-2xl">
-            <h2 className="font-display text-3xl md:text-4xl font-bold">Looking for a research or industrial partner?</h2>
-            <p className="mt-4 text-muted-foreground text-lg">
-              From process development to lab-scale manufacturing studies — let's discuss how I can support your project.
-            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold">{t("cta_title")}</h2>
+            <p className="mt-4 text-muted-foreground text-lg">{t("cta_desc")}</p>
             <div className="mt-8 flex gap-3">
               <Link to="/contact" className="bg-copper text-primary-foreground px-5 py-3 rounded-md text-sm font-medium shadow-elevated">
-                Get in touch
+                {t("cta_contact")}
               </Link>
               <Link to="/cv" className="border border-border px-5 py-3 rounded-md text-sm font-medium hover:bg-secondary">
-                Download CV
+                {t("cta_cv")}
               </Link>
             </div>
           </div>

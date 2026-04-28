@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { domains } from "@/lib/portfolio-data";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const Route = createFileRoute("/expertise")({
   head: () => ({
@@ -12,16 +13,14 @@ export const Route = createFileRoute("/expertise")({
 });
 
 function ExpertisePage() {
+  const { t } = useLanguage();
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
-      <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">Expertise</div>
+      <div className="text-xs font-mono text-primary uppercase tracking-[0.2em]">{t("exp_page_kicker")}</div>
       <h1 className="mt-3 font-display text-4xl md:text-5xl font-bold max-w-3xl text-balance">
-        Specialized domains across manufacturing & materials.
+        {t("exp_page_title")}
       </h1>
-      <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-        A multidisciplinary toolkit covering metal & polymer additive manufacturing, advanced welding, precision
-        machining, materials characterization and engineering management.
-      </p>
+      <p className="mt-5 text-lg text-muted-foreground max-w-2xl">{t("exp_page_desc")}</p>
 
       <div className="mt-16 grid md:grid-cols-2 gap-6">
         {domains.map((d, i) => (
