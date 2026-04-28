@@ -30,10 +30,16 @@
   --color-ring: var(--ring);
   --color-steel: var(--steel);
   --color-metal: var(--metal);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
+
+html[lang="ar"] {
+  --font-display: "Cairo", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans Arabic", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+html[dir="rtl"] .font-mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
 
 :root {
   --radius: 0.5rem;
