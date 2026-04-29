@@ -1,0 +1,42 @@
+<svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root {
+      --primary: #d97706;
+      --track: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #fbbf24;
+        --track: #374151;
+      }
+    }
+    @keyframes laser-cut {
+      0% { stroke-dashoffset: 220; filter: drop-shadow(0 0 1px var(--primary)); }
+      50% { filter: drop-shadow(0 0 4px var(--primary)); }
+      100% { stroke-dashoffset: 0; filter: drop-shadow(0 0 1px var(--primary)); }
+    }
+    .track {
+      stroke: var(--track);
+    }
+    .laser {
+      stroke: var(--primary);
+      stroke-dasharray: 220;
+      stroke-dashoffset: 220;
+      animation: laser-cut 3s ease-in-out infinite alternate;
+    }
+  </style>
+  <path 
+    class="track"
+    d="M 25,20 L 45,20 M 35,20 L 35,80 M 25,80 L 45,80 M 80,25 A 30,30 0 0,0 80,75" 
+    fill="none" 
+    stroke-width="8" 
+    stroke-linecap="square"
+  />
+  <path 
+    class="laser"
+    d="M 25,20 L 45,20 M 35,20 L 35,80 M 25,80 L 45,80 M 80,25 A 30,30 0 0,0 80,75" 
+    fill="none" 
+    stroke-width="8" 
+    stroke-linecap="square"
+  />
+</svg>
