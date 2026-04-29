@@ -182,12 +182,7 @@ function HeroSection() {
       <div className="absolute bottom-20 -left-32 h-[300px] w-[300px] rounded-full bg-accent/10 blur-3xl float-slower" />
       <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-32">
         <div className="max-w-3xl">
-          <Anim direction="down" delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card/60 text-xs font-mono text-muted-foreground mb-8">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              {t("hero_status")}
-            </div>
-          </Anim>
+
           <div className="mt-8">
             <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] text-balance">
               <Typewriter text={t("name")} />
