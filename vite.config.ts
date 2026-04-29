@@ -22,7 +22,7 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths(),
   ],
-  base: "/",
+  base: "/ismail-chekalil-portfolios/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
