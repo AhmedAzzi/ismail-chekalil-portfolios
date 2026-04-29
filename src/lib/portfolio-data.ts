@@ -15,6 +15,10 @@ import material4 from "@/assets/projects/material-4.png";
 import polymer1 from "@/assets/projects/polymer-1.png";
 import welding1 from "@/assets/projects/welding-1.png";
 import welding2 from "@/assets/projects/welding-2.png";
+import machiningVideo from "@/assets/Videos/5 axis machining.mp4";
+import lpbfVideo from "@/assets/Videos/VID20250721132619.mp4";
+import polymerVideo from "@/assets/Videos/VID20260202120106.mp4";
+import lwdedVideo from "@/assets/Videos/ok.mp4";
 
 export type Domain = {
   slug: string;
@@ -95,7 +99,8 @@ export type Project = {
   title: string;
   category: string;
   description: string;
-  image: string;
+  image?: string;
+  video?: string;
 };
 
 export const projects: Project[] = [
@@ -200,6 +205,30 @@ export const projects: Project[] = [
     category: "Management & Training",
     description: "Tailored engineering consulting on machine commissioning, process selection and production optimization.",
     image: mgmt3,
+  },
+  {
+    title: "SLM 280 Process Demonstration",
+    category: "Laser Powder Bed Fusion",
+    description: "Real-time recording of the SLM 280 metallic additive manufacturing process, showcasing laser-powder interaction.",
+    video: lpbfVideo,
+  },
+  {
+    title: "Robotic LWDED Printing",
+    category: "Directed Energy Deposition",
+    description: "Live demonstration of robotic Laser Wire Directed Energy Deposition for large-scale metal additive manufacturing.",
+    video: lwdedVideo,
+  },
+  {
+    title: "Large-Format FDM Operation",
+    category: "Polymer / Composite AM",
+    description: "Industrial FDM printing of functional polymer components using large-scale extrusion systems.",
+    video: polymerVideo,
+  },
+  {
+    title: "5-Axis Machining (Hermle C400)",
+    category: "Precision Machining",
+    description: "Simultaneous 5-axis milling operation on the HERMLE C400 for high-precision complex geometries.",
+    video: machiningVideo,
   },
 ];
 

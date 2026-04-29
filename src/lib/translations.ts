@@ -4,6 +4,7 @@ type Dict = Record<string, string>;
 
 export const translations: Record<Language, Dict> = {
   en: {
+    name: "Ismail Chekalil",
     // Nav
     nav_home: "Home",
     nav_expertise: "Expertise",
@@ -11,6 +12,7 @@ export const translations: Record<Language, Dict> = {
     nav_research: "Research",
     nav_cv: "CV",
     nav_contact: "Contact",
+    nav_experience: "Experience",
 
     // Hero / Home
     hero_status: "Available for research collaboration & consulting",
@@ -44,7 +46,7 @@ export const translations: Record<Language, Dict> = {
     expertise_all: "All domains →",
 
     // Projects preview
-    projects_kicker: "03 — Selected work",
+    projects_kicker: "04 — Selected work",
     projects_title: "Project gallery.",
     projects_view_all: "View all →",
 
@@ -54,6 +56,11 @@ export const translations: Record<Language, Dict> = {
       "From process development to lab-scale manufacturing studies — let's discuss how I can support your project.",
     cta_contact: "Get in touch",
     cta_cv: "Download CV",
+
+    // Timeline
+    timeline_kicker: "03 — Career path",
+    timeline_title: "Experience & Education.",
+    timeline_desc: "A professional journey spanning research, industry and academia — from precision machining labs to AI-assisted manufacturing research.",
 
     // Expertise page
     exp_page_kicker: "Expertise",
@@ -107,12 +114,14 @@ export const translations: Record<Language, Dict> = {
   },
 
   fr: {
+    name: "Ismail Chekalil",
     nav_home: "Accueil",
     nav_expertise: "Expertise",
     nav_projects: "Projets",
     nav_research: "Recherche",
     nav_cv: "CV",
     nav_contact: "Contact",
+    nav_experience: "Parcours",
 
     hero_status: "Disponible pour collaborations de recherche et conseil",
     hero_subtitle: "Chercheur en fabrication et matériaux",
@@ -141,7 +150,7 @@ export const translations: Record<Language, Dict> = {
     expertise_title: "Huit domaines d'ingénierie.",
     expertise_all: "Tous les domaines →",
 
-    projects_kicker: "03 — Travaux sélectionnés",
+    projects_kicker: "04 — Travaux sélectionnés",
     projects_title: "Galerie de projets.",
     projects_view_all: "Voir tout →",
 
@@ -150,6 +159,10 @@ export const translations: Record<Language, Dict> = {
       "Du développement de procédés aux études à l'échelle laboratoire — discutons de la façon dont je peux soutenir votre projet.",
     cta_contact: "Me contacter",
     cta_cv: "Télécharger le CV",
+
+    timeline_kicker: "03 — Parcours professionnel",
+    timeline_title: "Expérience & Formation.",
+    timeline_desc: "Un parcours professionnel entre recherche, industrie et enseignement — des laboratoires d'usinage de précision à la recherche en fabrication assistée par IA.",
 
     exp_page_kicker: "Expertise",
     exp_page_title: "Domaines spécialisés en fabrication & matériaux.",
@@ -198,12 +211,14 @@ export const translations: Record<Language, Dict> = {
   },
 
   ar: {
+    name: "إسماعيل شيقاليل",
     nav_home: "الرئيسية",
     nav_expertise: "الخبرات",
     nav_projects: "المشاريع",
     nav_research: "الأبحاث",
     nav_cv: "السيرة الذاتية",
     nav_contact: "اتصل بي",
+    nav_experience: "المسيرة",
 
     hero_status: "متاح للتعاون البحثي والاستشارات",
     hero_subtitle: "باحث في التصنيع والمواد",
@@ -232,7 +247,7 @@ export const translations: Record<Language, Dict> = {
     expertise_title: "ثمانية مجالات هندسية.",
     expertise_all: "كل المجالات →",
 
-    projects_kicker: "03 — أعمال مختارة",
+    projects_kicker: "04 — أعمال مختارة",
     projects_title: "معرض المشاريع.",
     projects_view_all: "عرض الكل →",
 
@@ -240,6 +255,10 @@ export const translations: Record<Language, Dict> = {
     cta_desc: "من تطوير العمليات إلى الدراسات المخبرية — لنناقش كيف يمكنني دعم مشروعك.",
     cta_contact: "تواصل معي",
     cta_cv: "تحميل السيرة الذاتية",
+
+    timeline_kicker: "03 — المسيرة المهنية",
+    timeline_title: "الخبرة والتعليم.",
+    timeline_desc: "مسيرة مهنية تمتد عبر البحث والصناعة والأكاديميا — من مختبرات التشغيل الدقيق إلى أبحاث التصنيع المعزز بالذكاء الاصطناعي.",
 
     exp_page_kicker: "الخبرات",
     exp_page_title: "مجالات متخصصة في التصنيع والمواد.",
